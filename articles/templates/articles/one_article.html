@@ -1,0 +1,18 @@
+{%  extends 'base.html' %}
+
+{%  load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href={% static 'articles/css/list.css' %}>
+{% endblock %}
+
+
+{% block title %}
+{{ article.article_title }}
+{% endblock %}
+
+
+{% block content %}
+<h2>{{ article.article_text }}</h2>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href={% static 'articles/css/list.css' %}>
+{% endblock %}
+
+{% block title %} MY TEST TITLE{% endblock %}
+{% block content %}
+    <h2>PAGE CONTENT INSIDE OF BLOCK</h2>
+
+    {% if latest_articles_list %}
+        {% for a in latest_articles_list %}
+{#            Articles:detail - to do correct path from articles urls - showed ib app_name at urls#}
+            <p><a href="{% url 'articles:detail' a.id %}">{{ a.article_title }}</a></p>
+        {% endfor %}
+    {% else %}
+        <h2>Articles not found...</h2>
+    {% endif %}
+{% endblock %}
+
